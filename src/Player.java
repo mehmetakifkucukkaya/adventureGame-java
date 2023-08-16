@@ -2,7 +2,19 @@ import java.util.Scanner;
 
 public class Player {
     Scanner scanner = new Scanner(System.in);
-    private int damage,health,money;
+    private int damage;
+    private int health;
+    private int money;
+
+    public int getRealHealth() {
+        return realHealth;
+    }
+
+    public void setRealHealth(int realHealth) {
+        this.realHealth = realHealth;
+    }
+
+    private int realHealth;
     private String name,characterName;
     private Inventory inv;
 
@@ -56,6 +68,7 @@ public class Player {
         setDamage(damage);
         setHealth(health);
         setMoney(money);
+        setRealHealth(realHealth);
     }
 
     public int getDamage() {
