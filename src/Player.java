@@ -12,31 +12,19 @@ public class Player {
         {
             // Samuray
             case 1:
-                setName("Samuray");
-                setDamage(5);
-                setHealth(21);
-                setMoney(15);
+                initPlayer("Samuray",5,21,15);
                 break;
             // Okcu
             case 2:
-                setName("Okcu");
-                setDamage(7);
-                setHealth(18);
-                setMoney(20);
+                initPlayer("Okcu",7,18,15);
                 break;
             // Sovalye
             case 3:
-                setName("Sovalye");
-                setDamage(8);
-                setHealth(24);
-                setMoney(5);
+                initPlayer("Sovalye",8,24,5);
                 break;
-            // Oyuncu karakter seçmezse otomatik olarak samuray seçilir
+            // Oyuncu karakter seçmezse otomatik olarak Samuray seçilir
             default:
-                setName("Samuray");
-                setDamage(5);
-                setHealth(21);
-                setMoney(15);
+                initPlayer("Samuray",5,21,15);
                 break;
         }
         System.out.println("Seçtiğiniz Karakter Bilgileri:\n" + "Karakter: " + getName() + " ,Hasar: " + getDamage() + " ,Sağlık " + getHealth() + " ,Para: " + getMoney());
@@ -58,8 +46,16 @@ public class Player {
             System.out.print("Seçiminiz: ");
             charID = scanner.nextInt();
         }
-
         return charID;
+    }
+
+    // Player'ı initalize eden fonksiyon.
+    public void initPlayer(String charName, int damage, int health, int money)
+    {
+        setName(charName);
+        setDamage(damage);
+        setHealth(health);
+        setMoney(money);
     }
 
     public int getDamage() {
