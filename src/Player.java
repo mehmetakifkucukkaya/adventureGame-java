@@ -11,6 +11,9 @@ public class Player {
         this.inv = new Inventory();  // Envanteri oluşturuyoruz
     }
 
+    public int getTotalDamage(){
+        return  this.getDamage() + this.getInv().getDamage();
+    }
     public int getRealHealth() {
         return realHealth;
     }

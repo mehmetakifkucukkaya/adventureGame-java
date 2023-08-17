@@ -24,7 +24,6 @@ public class Game {
        {
            System.out.println();
            System.out.println("-------------------------------------------");
-           System.out.println();
            System.out.println("1-) Güvenli Ev -> Güvende olduğunuz ev. Burada canınız yenilenir");
            System.out.println("2-) Mağara -> Zombilerle karşılaşma ihtimaliniz var !");
            System.out.println("3-) Orman -> Vampirlerle karşılaşma ihtimaliniz var !");

@@ -3,7 +3,7 @@ public class Store extends SafeLocation{
         super(player, "Mağaza");
     }
     public boolean getLocation(){
-       storeMenu();
+        storeMenu();
         return true;
     }
 
@@ -26,11 +26,72 @@ public class Store extends SafeLocation{
                 buyWeapon(secimItemID);
                 break;
             case 2:
+                secimItemID = armorMenu();
+                buyArmor(secimItemID);
                 break;
-
             default:
                 break;
         }
+    }
+
+    private void buyArmor(int secimItemID) {
+        int defense=0,price=0;
+        String armorName = null;
+
+        switch (secimItemID)
+        {
+            case 1:
+                defense = 1;
+                armorName = "Hafif Zırh";
+                price = 15;
+                break;
+            case 2:
+                defense = 3;
+                armorName = "Orta Zırh";
+                price = 25;
+                break;
+            case 3:
+                defense = 5;
+                armorName = "Ağır Zırh";
+                price = 40;
+                break;
+            case 4:
+                System.out.println("Çıkış Yapılıyor...");
+                break;
+            default:
+                System.out.println("Geçersiz işlem !");
+                break;
+        }
+
+        if(price >= 0)
+        {
+            if(player.getMoney() > price)
+            {
+                player.getInv().setArmor(defense);
+                player.getInv().setArmorName(armorName);
+                player.setMoney(player.getMoney() - price);
+
+                System.out.println(armorName+" alındı... Eklenen Defans: "+ player.getInv().getArmor());
+                System.out.println("Kalan Para: " + player.getMoney());
+            }
+        }
+        else {
+            System.out.println("Yetersiz Para !");
+        }
+
+    }
+
+
+    private int armorMenu() {
+        System.out.println("1-) Hafif\t 15 Para - 1 Savunma");
+        System.out.println("2-) Orta\t 25 Para - 3 Savunma");
+        System.out.println("3-) Ağır\t 45 Para - 5 Savunma");
+        System.out.println("4-) İptal");
+
+        System.out.print("Zırh Seçimi yapınız: ");
+        int secimArmorID = scanner.nextInt();
+
+        return secimArmorID;
     }
 
     private void buyWeapon(int itemID) {
@@ -42,7 +103,7 @@ public class Store extends SafeLocation{
             case 1:
                 damage = 2;
                 weaponName = "Tabanca";
-                price = 5;
+                price = 15;
                 break;
             case 2:
                 damage = 3;
@@ -59,14 +120,17 @@ public class Store extends SafeLocation{
                     break;
         }
         // Alınan silaha göre yeni damage ve money değerleri güncelleniyor
-        if(player.getMoney() > price)
+        if(price > 0)
         {
-            player.getInv().setDamage(damage);
-            player.getInv().setWeaponName(weaponName);
-            player.setMoney(player.getMoney() - price);
+            if(player.getMoney() >= price)
+            {
+                player.getInv().setDamage(damage);
+                player.getInv().setWeaponName(weaponName);
+                player.setMoney(player.getMoney() - price);
 
-            System.out.println(weaponName+" Silahı alındı... Önceki Hasar: "+ player.getDamage() + "\tYeni Hasar: " + (player.getDamage()+player.getInv().getDamage()));
-            System.out.println("Kalan Para: " + player.getMoney());
+                System.out.println(weaponName+" Silahı alındı... Önceki Hasar: "+ player.getDamage() + "\tYeni Hasar: " + player.getTotalDamage());
+                System.out.println("Kalan Para: " + player.getMoney());
+            }
         }
         else {
             System.out.println("Yetersiz Para !");
