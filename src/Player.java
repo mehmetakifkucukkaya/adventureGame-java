@@ -6,6 +6,11 @@ public class Player {
     private int health;
     private int money;
 
+    public Player(String name) {
+        this.name = name;
+        this.inv = new Inventory();  // Envanteri oluşturuyoruz
+    }
+
     public int getRealHealth() {
         return realHealth;
     }
@@ -28,7 +33,7 @@ public class Player {
                 break;
             // Okcu
             case 2:
-                initPlayer("Okcu",7,18,15);
+                initPlayer("Okcu",7,18,20);
                 break;
             // Sovalye
             case 3:
@@ -120,9 +125,6 @@ public class Player {
     }
 
 
-    public Player(String name) {
-        this.name = name;
-    }
 
 
 }

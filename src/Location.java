@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public abstract class Location {
+    Scanner scanner = new Scanner(System.in);
 
     protected Player player;
     protected String name;

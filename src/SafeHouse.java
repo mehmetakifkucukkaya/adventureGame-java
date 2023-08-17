@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class SafeHouse extends  SafeLocation{
     public SafeHouse(Player player) {
         super(player, "Guvenli Ev");
