@@ -47,6 +47,10 @@ public class Game {
                    break;
                case 2: location= new Cave(player);
                break;
+               case 3: location= new Forest(player);
+                   break;
+               case 4: location= new River(player);
+                   break;
                case 5:
                location = new Store(player);
                break;
@@ -55,6 +59,13 @@ public class Game {
                    break;
            }
 
+           if(location.getClass().getName().equals("SafeHouse")){
+               if(player.getInv().isWater() && player.getInv().isFood() && player.getInv().isWood())
+               {
+                   System.out.println("Tebrikler Oyunu Kazandınız !!");
+                   break;
+               }
+           }
           if (! location.getLocation())
           {
               System.out.println("Oyun Bitti !");

@@ -1,6 +1,6 @@
 public class Inventory {
 
-    private  boolean water,wood,food;
+    private boolean water,wood,food;
     private String weaponName,armorName;
     private int damage,armor;
 

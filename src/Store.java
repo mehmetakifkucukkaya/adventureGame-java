@@ -103,7 +103,7 @@ public class Store extends SafeLocation{
             case 1:
                 damage = 2;
                 weaponName = "Tabanca";
-                price = 15;
+                price = 25;
                 break;
             case 2:
                 damage = 3;
