@@ -36,7 +36,7 @@ public class Player {
                 break;
             // Okcu
             case 2:
-                initPlayer("Okcu",70,18,20);
+                initPlayer("Okcu",7,18,20);
                 break;
             // Sovalye
             case 3:
