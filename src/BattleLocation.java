@@ -25,15 +25,20 @@ public abstract class BattleLocation extends Location{
             if(fight(enemyUnit))
             {
                 System.out.println(this.getName() + " bölgesindeki savaşı kazandınız !");
-                if (this.award.equals("Food") && player.getInv().isFood() == false) {
-                    System.out.println(this.award + " Kazandiniz! ");
-                    player.getInv().setFood(true);
-                } else if (this.award.equals("Water") && player.getInv().isWater() == false) {
-                    System.out.println(this.award + " Kazandiniz! ");
-                    player.getInv().setWater(true);
-                } else if (this.award.equals("Wood") && player.getInv().isWood() == false) {
-                    System.out.println(this.award + " Kazandiniz! ");
-                    player.getInv().setWood(true);
+                if(this.award.equals("Yemek") && player.getInv().isFood() == false)
+                {
+                    System.out.println(this.award+" kazandınız !");
+                    player.getInv().setFood(true);  // Ödül envantere eklendi
+                }
+                else if(this.award.equals("Su") && player.getInv().isWater() == false)
+                {
+                    System.out.println(this.award+" kazandınız !");
+                    player.getInv().setWater(true);  // Ödül envantere eklendi
+                }
+                else if(this.award.equals("Odun") && player.getInv().isWood() == false)
+                {
+                    System.out.println(this.award+" kazandınız !");
+                    player.getInv().setWood(true);  // Ödül envantere eklendi
                 }
                 return true;
             }
