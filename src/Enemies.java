@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Enemies {
     private  String name;
     private  int damage,health,award,maxUnit;
@@ -10,7 +12,12 @@ public class Enemies {
         this.maxUnit = maxUnit;
     }
 
+    // Mekanlarda çıkacak rastegele sayıdaki düşmanların sayısını belirleyen metot.
+    public int enemiesUnit(){
+        Random random = new Random();
+        return  random.nextInt(this.maxUnit) + 1;
 
+    }
 
     public String getName() {
         return name;
